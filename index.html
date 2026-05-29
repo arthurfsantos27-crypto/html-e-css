@@ -1,72 +1,276 @@
 <!DOCTYPE html>
-            margin-bottom: 10px;
-            font-size: 24px;
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscrição SENAI</title>
+
+    <style>
+
+        body{
+            background-color: blue;
+            font-family: Arial;
         }
 
-        .localizacao {
-            color: #c4f82a;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .descricao {
-            color: #d3d3d3;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .links a {
-            background-color: #333333;
-            color: white;
-            text-decoration: none;
-            padding: 14px;
+        .caixa{
+            background-color: white;
+            width: 500px;
+            margin: auto;
+            margin-top: 30px;
+            padding: 30px;
             border-radius: 10px;
+        }
+
+        h1{
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 30px;
+        }
+
+        label{
+            font-size: 20px;
             font-weight: bold;
-            transition: 0.3s;
         }
 
-        .links a:hover,
-        .links a:focus {
-            background-color: #c4f82a;
-            color: black;
+        input, select, textarea{
+            width: 100%;
+            height: 35px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid gray;
         }
 
-        @media (max-width: 400px) {
-            .card {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
+        textarea{
+            height: 100px;
         }
+
+        button{
+            width: 100%;
+            height: 45px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .link{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a{
+            color: purple;
+            font-size: 20px;
+        }
+
+        /* PÁGINA 2 */
+
+        .pagina2{
+            display: none;
+        }
+
+        .titulo{
+            color: darkblue;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* PÁGINA 3 */
+
+        .pagina3{
+            display: none;
+            text-align: center;
+            color: white;
+            margin-top: 200px;
+        }
+
+        .voltar{
+            width: 200px;
+            background-color: limegreen;
+            margin-top: 30px;
+        }
+
     </style>
 </head>
 <body>
 
-    <main class="card">
-        <img src="https://i.pravatar.cc/150" alt="Foto de perfil" class="foto-perfil">
+    <!-- PÁGINA 1 -->
 
-        <h1>Arthur Felipe</h1>
+    <div class="caixa" id="pagina1">
 
-        <p class="localizacao">Recife, Brasil</p>
+        <h1>Inscrição SENAI</h1>
 
-        <p class="descricao">"Estudante e desenvolvedor iniciante."</p>
+        <form onsubmit="enviar(event)">
 
-        <nav class="links">
-            <a href="#">GitHub</a>
-            <a href="#">Frontend Mentor</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-        </nav>
-    </main>
+            <label>Nome completo:</label>
+            <input type="text" required>
+
+            <label>E-mail:</label>
+            <input type="email" required>
+
+            <label>Telefone:</label>
+            <input type="text" required>
+
+            <label>Curso desejado:</label>
+
+            <select>
+                <option>Selecione...</option>
+                <option>DS</option>
+                <option>Redes</option>
+                <option>Eletrotécnica</option>
+            </select>
+
+            <label>Observações:</label>
+            <textarea></textarea>
+
+            <button type="submit">
+                Enviar Inscrição
+            </button>
+
+        </form>
+
+        <div class="link">
+            <a href="#" onclick="mostrarPagina2()">
+                Já Sou aluno!
+            </a>
+        </div>
+
+    </div>
+
+    <!-- PÁGINA 2 -->
+
+    <div class="caixa pagina2" id="pagina2">
+
+        <h1>Já Sou Aluno!</h1>
+
+        <h2 class="titulo">1 - Dados Pessoais</h2>
+
+        <label>Nome completo:</label>
+        <input type="text">
+
+        <label>Data de nascimento:</label>
+        <input type="date">
+
+        <label>CPF:</label>
+        <input type="text">
+
+        <label>RG:</label>
+        <input type="text">
+
+        <label>Gênero:</label>
+        <select>
+            <option>Selecione...</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+        </select>
+
+        <h2 class="titulo">2 - Endereço</h2>
+
+        <label>Rua:</label>
+        <input type="text">
+
+        <label>Número:</label>
+        <input type="text">
+
+        <label>Bairro:</label>
+        <input type="text">
+
+        <label>Cidade:</label>
+        <input type="text">
+
+        <label>UF:</label>
+        <select>
+            <option>Selecione...</option>
+            <option>PE</option>
+            <option>SP</option>
+            <option>RJ</option>
+        </select>
+
+        <h2 class="titulo">3 - Contato</h2>
+
+        <label>Telefone:</label>
+        <input type="text">
+
+        <label>Whatsapp:</label>
+        <input type="text">
+
+        <label>E-mail:</label>
+        <input type="email">
+
+        <label>Linkedin:</label>
+        <input type="text">
+
+        <h2 class="titulo">4 - Outras Informações</h2>
+
+        <label>Possui CNH?</label>
+
+        <select>
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+
+        <label>Tipo sanguíneo:</label>
+
+        <select>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>O+</option>
+        </select>
+
+        <label>Observação:</label>
+
+        <textarea></textarea>
+
+        <button class="voltar" onclick="voltar()">
+            Voltar
+        </button>
+
+    </div>
+
+    <!-- PÁGINA 3 -->
+
+    <div class="pagina3" id="pagina3">
+
+        <h1>O SENAI AGRADECE SUA INSCRIÇÃO!!!</h1>
+
+        <button class="voltar" onclick="voltar()">
+            Voltar
+        </button>
+
+    </div>
+
+    <script>
+
+        function mostrarPagina2(){
+
+            document.getElementById("pagina1").style.display = "none";
+
+            document.getElementById("pagina2").style.display = "block";
+        }
+
+        function enviar(event){
+
+            event.preventDefault();
+
+            document.getElementById("pagina1").style.display = "none";
+
+            document.getElementById("pagina3").style.display = "block";
+        }
+
+        function voltar(){
+
+            document.getElementById("pagina1").style.display = "block";
+
+            document.getElementById("pagina2").style.display = "none";
+
+            document.getElementById("pagina3").style.display = "none";
+        }
+
+    </script>
 
 </body>
 </html>
